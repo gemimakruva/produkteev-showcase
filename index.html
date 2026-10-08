@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produkteev</title>
+  <meta name="description" content="Omnichannel CRM for Indonesian SMBs. One inbox for WhatsApp, Instagram, email, and web chat.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --fg: #1c1917;
+      --muted: #78716c;
+      --surface: #ffffff;
+      --border: #e7e5e4;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --green: #16a34a;
+      --green-light: #dcfce7;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f0f0f;
+        --fg: #e7e5e4;
+        --muted: #a8a29e;
+        --surface: #1c1c1c;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-light: #1e3a5f;
+        --green: #4ade80;
+        --green-light: #14532d;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    .tagline {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.625rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.9375rem;
+    }
+    .cta:hover { opacity: 0.9; }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    section h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature h3 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .feature p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .stat {
+      text-align: center;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.125rem;
+    }
+
+    /* Tech */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tech-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.375rem 0.75rem;
+      font-size: 0.8125rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+
+    /* AI */
+    .ai-list {
+      list-style: none;
+      display: grid;
+      gap: 0.625rem;
+    }
+    .ai-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.625rem;
+      font-size: 0.9375rem;
+    }
+    .ai-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 0.5em;
+    }
+    .ai-badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8125rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Produkte<span>ev</span></div>
+      <p class="tagline">Omnichannel CRM for Indonesian SMBs. One inbox for WhatsApp, Instagram, email, and web chat.</p>
+      <a href="https://produkteev.id" class="cta" target="_blank" rel="noopener">Visit produkteev.id</a>
+    </header>
+
+    <section>
+      <h2>Features</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">📨</div>
+          <h3>Unified Inbox</h3>
+          <p>WhatsApp, Instagram DM, email, and web chat in one place. No more switching apps.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <h3>Contact Management</h3>
+          <p>Full conversation history per customer across all channels.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Pipeline Tracking</h3>
+          <p>Track deals from first touch to close with drag-and-drop kanban.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Smart Reply</h3>
+          <p>Claude-powered reply suggestions and auto-categorization of conversations.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📣</div>
+          <h3>Broadcast</h3>
+          <p>Bulk WhatsApp messaging with approved templates and scheduling.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👨‍💼</div>
+          <h3>Team Collaboration</h3>
+          <p>Assignment, internal notes, and SLA tracking across agents.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Scale</h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Features</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">216</div>
+          <div class="stat-label">DB Tables</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">655</div>
+          <div class="stat-label">API Endpoints</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">249</div>
+          <div class="stat-label">Frontend Pages</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">31</div>
+          <div class="stat-label">Provinces</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>AI Capabilities</h2>
+      <div class="ai-badge">Powered by Claude</div>
+      <ul class="ai-list">
+        <li>Automatic conversation categorization (complaint, inquiry, order, etc.)</li>
+        <li>Smart reply suggestions based on conversation context</li>
+        <li>Conversation summaries for handoff between agents</li>
+        <li>Sentiment detection on incoming messages</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tech Stack</h2>
+      <div class="tech-grid">
+        <span class="tech-tag">Express.js</span>
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Baileys</span>
+        <span class="tech-tag">Claude API</span>
+        <span class="tech-tag">Node.js</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built by <a href="https://makruva.com" target="_blank" rel="noopener">Makruva</a></p>
+      <p style="margin-top: 0.25rem;">This is a product overview. The production codebase is in a private repository.</p>
+    </footer>
+  </div>
+</body>
+</html>
